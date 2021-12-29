@@ -4,8 +4,10 @@ import Node from "./node";
     constructor() {
       this.root = null;
     }
+
+    // add unique phone number
     AddNumber(phoneNumber, email, name) {
-        //validation
+      //validation
       let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
       if (typeof phoneNumber !== "string" || phoneNumber.length !== 11)
         return "Invalid PhoneNumber";
@@ -13,7 +15,6 @@ import Node from "./node";
       if (!regex.test(email)) return "Invalid Email";
       if (this.GetNumber(phoneNumber)) return "Phone Number already exists";
       if (this.DoesEmailExist(email)) return "Email already exists";
-
 
       let node = new Node(phoneNumber, email, name);
       if (!this.root) {
@@ -50,7 +51,7 @@ import Node from "./node";
             phoneNumber,
             name: current.name,
             email: current.email,
-            dateCreated: current.dateCreated
+            dateCreated: current.dateCreated,
           };
         if (phoneNumber < current.phoneNumber) {
           if (!current.left) {
